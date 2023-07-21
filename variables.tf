@@ -33,3 +33,35 @@ variable "minimum_tls_version" {
   default     = 1.0
 
 }
+
+variable "cluster_shard_count" {
+  description = "Number of cluster shards desired.Only available when using the Premium SKU."
+  type        = number
+  default     = 3
+}
+
+variable "public_network_access_enabled" {
+  description = "Whether or not public network access is allowed for this Redis Cache. true means this resource could be accessed by both public and private endpoint. false means only private endpoint access is allowed."
+  type        = bool
+  default     = true
+}
+
+variable "redis_version" {
+  description = "Redis version. Only major version needed. Valid values: 4, 6"
+  type        = number
+  default     = 4
+
+}
+
+variable "private_static_ip_address" {
+  description = "The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of subnet_id. Changing this forces a new resource to be created."
+  type = string
+  deafult = null
+}
+
+variable "subnet_id" {
+  description = "Only available when using the Premium SKU The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created."
+  type = string
+  default = null
+  
+}
