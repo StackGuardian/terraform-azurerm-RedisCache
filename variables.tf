@@ -7,7 +7,7 @@ variable "location" {
 }
 
 variable "resouce_group_name" {
-    description = "Required) The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created."
+  description = "Required) The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created."
 }
 
 variable "capacity" {
@@ -19,17 +19,17 @@ variable "family" {
 }
 
 variable "sku" {
-    description = "(Required) The SKU of Redis to use. Possible values are Basic, Standard and Premium" 
+  description = "(Required) The SKU of Redis to use. Possible values are Basic, Standard and Premium"
 }
 
 variable "enable_non_ssl_port" {
-    description = "Enable the non-SSL port (6379) ?"
-    type = bool
-    default = false
+  description = "Enable the non-SSL port (6379) ?"
+  type        = bool
+  default     = false
 }
 
 variable "minimum_tls_version" {
-    description = "(Optional) The minimum TLS version. Possible values are 1.0, 1.1 and 1.2."
-    default = 1.0
-  
+  description = "(Optional) The minimum TLS version. Possible values are 1.0, 1.1 and 1.2."
+  default     = 1.0
+
 }
