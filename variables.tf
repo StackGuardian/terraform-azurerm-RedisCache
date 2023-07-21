@@ -7,7 +7,7 @@ variable "location" {
 }
 
 variable "resouce_group_name" {
-  description = "Required) The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created."
+  description = "(Required) The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created."
 }
 
 variable "capacity" {
@@ -56,7 +56,7 @@ variable "redis_version" {
 variable "private_static_ip_address" {
   description = "The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of subnet_id. Changing this forces a new resource to be created."
   type        = string
-  deafult     = null
+  default     = null
 }
 
 variable "subnet_id" {
