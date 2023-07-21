@@ -14,26 +14,26 @@ resource "azurerm_redis_cache" "redis-cache" {
   redis_version                 = var.redis_version
   zones                         = var.zones
   redis_configuration {
-    aof_backup_enabled              = redis_configuration.value.aof_backup_enabled
-    aof_storage_connection_string_0 = redis_configuration.value.aof_storage_connection_string_0
-    aof_storage_connection_string_1 = redis_configuration.value.aof_storage_connection_string_1
-    enable_authentication           = redis_configuration.value.enable_authentication
-    maxmemory_reserved              = redis_configuration.value.maxmemory_reserved
-    maxmemory_delta                 = redis_configuration.value.maxmemory_delta
-    maxmemory_policy                = redis_configuration.value.maxmemory_policy
-    maxfragmentationmemory_reserved = redis_configuration.value.maxfragmentationmemory_reserved
-    rdb_backup_enabled              = redis_configuration.value.rdb_backup_enabled
-    rdb_backup_frequency            = redis_configuration.value.rdb_backup_frequency
-    rdb_backup_max_snapshot_count   = redis_configuration.value.rdb_backup_max_snapshot_count
-    rdb_storage_connection_string   = redis_configuration.value.rdb_storage_connection_string
+    aof_backup_enabled              = var.redis_configuration.aof_backup_enabled
+    aof_storage_connection_string_0 = var.redis_configuration.aof_storage_connection_string_0
+    aof_storage_connection_string_1 = var.redis_configuration.aof_storage_connection_string_1
+    enable_authentication           = var.redis_configuration.enable_authentication
+    maxmemory_reserved              = var.redis_configuration.maxmemory_reserved
+    maxmemory_delta                 = var.redis_configuration.maxmemory_delta
+    maxmemory_policy                = var.redis_configuration.maxmemory_policy
+    maxfragmentationmemory_reserved = var.redis_configuration.maxfragmentationmemory_reserved
+    rdb_backup_enabled              = var.redis_configuration.rdb_backup_enabled
+    rdb_backup_frequency            = var.redis_configuration.rdb_backup_frequency
+    rdb_backup_max_snapshot_count   = var.redis_configuration.rdb_backup_max_snapshot_count
+    rdb_storage_connection_string   = var.redis_configuration.rdb_storage_connection_string
   }
   lifecycle {
     ignore_changes = [redis_configuration[0].rdb_storage_connection_string]
   }
   patch_schedule {
-    days_of_week       = patch_schedule.value.days_of_week
-    start_hour_utc     = patch_schedule.value.start_hour_utc
-    maintenance_window = patch_schedule.value.maintenance_window
+    days_of_week       = var.patch_schedule.days_of_week
+    start_hour_utc     = var.patch_schedule.start_hour_utc
+    maintenance_window = var.patch_schedule.maintenance_window
   }
 }
 
