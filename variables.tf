@@ -65,7 +65,7 @@ variable "subnet_id" {
   default     = null
 }
 
-variable "redis_additional_configuration" {
+variable "redis_configuration" {
   description = "Additional configuration for the Redis instance. Some of the keys are set automatically. See https://www.terraform.io/docs/providers/azurerm/r/redis_cache.html#redis_configuration for full reference."
   type = object({
     aof_backup_enabled              = optional(bool)
@@ -85,7 +85,7 @@ variable "redis_additional_configuration" {
   default = {}
 }
 
-variable "patch_schedules" {
+variable "patch_schedule" {
   description = "A list of Patch Schedule, Azure Cache for Redis patch schedule is used to install important software updates in specified time window."
   default     = []
   nullable    = false
