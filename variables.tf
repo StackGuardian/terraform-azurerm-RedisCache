@@ -90,16 +90,16 @@ variable "redis_configuration" {
   default = {}
 }
 
-variable "patch_schedule" {
-  description = "A list of Patch Schedule, Azure Cache for Redis patch schedule is used to install important software updates in specified time window."
-  default     = []
-  nullable    = false
-  type = list(object({
-    day_of_week        = string
-    start_hour_utc     = optional(string)
-    maintenance_window = optional(string)
-  }))
-}
+#variable "patch_schedule" {
+#  description = "A list of Patch Schedule, Azure Cache for Redis patch schedule is used to install important software updates in specified time window."
+#  default     = []
+#  nullable    = false
+#  type = list(object({
+#    day_of_week        = string
+#    start_hour_utc     = optional(string)
+#    maintenance_window = optional(string)
+#  }))
+#}
 
 variable "storage_name" {
   description = "Specifies the name of the Storage Account"
@@ -116,4 +116,9 @@ variable "data_persistence_storage_account_replication" {
   description = "Replication type for the Storage Account used for data persistence."
   type        = string
   default     = "LRS"
+}
+
+variable "tags" {
+  description = "A mapping of tags to assign to the resource."
+  type        = map(any)
 }

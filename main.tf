@@ -30,15 +30,12 @@ resource "azurerm_redis_cache" "redis-cache" {
   lifecycle {
     ignore_changes = [redis_configuration[0].rdb_storage_connection_string]
   }
-  patch_schedule {
-    for_each = var.patch_schedule
-    content {
-      days_of_week       = patch_schedule.value.day_of_week
-      start_hour_utc     = patch_schedule.value.start_hour_utc
-      maintenance_window = patch_schedule.value.maintenance_window
-    }
-
-  }
+  #patch_schedule {
+  #  day_of_week        = var.patch_schedule.day_of_week
+  #  start_hour_utc     = var.patch_schedule.start_hour_utc
+  #  maintenance_window = var.patch_schedule.maintenance_window
+  #}
+  tags = var.tags
 }
 
 resource "azurerm_storage_account" "redis_storage" {
