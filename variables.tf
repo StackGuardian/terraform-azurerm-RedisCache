@@ -6,7 +6,7 @@ variable "location" {
   description = "(Required) The location of the resource group. Changing this forces a new resource to be created."
 }
 
-variable "resouce_group_name" {
+variable "resource_group_name" {
   description = "(Required) The name of the resource group in which to create the Redis instance. Changing this forces a new resource to be created."
 }
 
@@ -65,6 +65,11 @@ variable "subnet_id" {
   default     = null
 }
 
+variable "zones" {
+  description = "(Optional) Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created."
+  default = null
+  type = list(number)
+}
 variable "redis_configuration" {
   description = "Additional configuration for the Redis instance. Some of the keys are set automatically. See https://www.terraform.io/docs/providers/azurerm/r/redis_cache.html#redis_configuration for full reference."
   type = object({
@@ -96,6 +101,11 @@ variable "patch_schedule" {
   }))
 }
 
+variable "storage_name" {
+  description = "Specifies the name of the Storage Account"
+  type = string
+  default = ""
+}
 variable "data_persistence_storage_account_tier" {
   description = "Replication type for the Storage Account used for data persistence."
   type        = string
